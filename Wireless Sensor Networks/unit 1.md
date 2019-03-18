@@ -76,7 +76,7 @@ WSNs can be applied to monitor the chemical, biological or other environmental t
 
 1. Network setups can be carried out without fixed infrastructure.
 2. Suitable for the non-reachable places such as over the sea, mountains, rural
-  areas or deep forests.
+    areas or deep forests.
 3. Flexible if there is random situation when additional workstation is needed.
 4. Implementation pricing is cheap.
 5. It avoids plenty of wiring.
@@ -97,12 +97,16 @@ without manual management or configuration.Usually, however, the notion of a MAN
 |                            MANET                             |                             WSN                              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | diversity, although present, is not quite as large in MANETs. | WSNs are conceivable with very different network densities, from very sparse to very dense deployments, which will require different or at least adaptive protocols. |
-| MANETs, on the other hand, are used to support more conventional applications (Web, voice, and so on) with their comparably well understood
-traffic characteristics. | WSNs have to interact with the environment, their traffic charateristics can be expected to be very different from other, human-driven forms of networks. A typical consequence is that WSNs are likely to exhibit very low data rates over a large timescale, but can have very bursty traffic when something happens (a phenomenon known from real-time systems as event showers or alarm storms). Long periods (months) of inactivity can alternate with short periods (seconds or minutes) of very high activity in the network, pushing its capacity to the limits. |
-| MANETs also have scarce energy but compared to WSN they have large resources. | WSNs have tighter requirements on network lifetime, and recharging or replacing WSN node batteries is much less an option than in MANETs. |
-|  In a MANET, each individual node should be fairly reliable  | in a WSN, an individual node is next to irrelevant.in a WSN, an individual node is next to irrelevant. |
+| MANETs, on the other hand, are used to support more conventional applications (Web, voice, and so on) with their comparably well understood traffic characteristics. | WSNs have to interact with the environment, their traffic charateristics can be expected to be very different from other, human-driven forms of networks. A typical consequence is that WSNs are likely to exhibit very low data rates over a large timescale, but can have very bursty traffic when something happens (a phenomenon known from real-time systems as event showers or alarm storms). Long periods (months) of inactivity can alternate with short periods (seconds or minutes) of very high activity in the network, pushing its capacity to the limits. |
+| MANETs also have scarce energy but compared to WSN they have large resources. | WSNs have tighter requirements on network lifetime, and recharging or replacing WSN node batteries is much less an option than in MANETs |
+|  In a MANET, each individual node should be fairly reliable  | in a WSN, an individual node is next to irrelevant.in a WSN, an individual node is next to irrelevant |
+
+
+![img](https://i.imgur.com/3fnAmzH.jpg)
 
 
 
 **Enabling technologies for wireless sensor networks.**
+
+
 
