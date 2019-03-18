@@ -261,3 +261,121 @@ The set of interfaces which a component provides together with the set of interf
 ### Modules and Configurations
 
 There are two types of components in nesC: *modules* and *configurations*. Modules provide the implementations of one or more interfaces. Configurations are used to assemble other components together, connecting interfaces used by components to interfaces provided by others. Every nesC application is described by a top-level configuration that wires together the components inside.
+
+
+
+**NETWORK ARCHITECTURE:**
+
+This concept has discussion on turning individual sensor nodes into a wireless sensor network and Optimization goals of how a network should function.
+
+* Sensor network scenarios
+
+* Optimization goals and figures of merit
+
+* Gateway concepts 
+
+**Sensor** **network** **scenarios:**
+
+**Types of sources and** **sinks:**
+
+![img](https://i.imgur.com/EMrZS6T.png)
+
+* Source is any unit in the network that can provide information(sensor node).
+* A sink is the unit where information is required, it could belong to the sensor network or  outside this network to interact with the another network or a gateway to another larger Internet . 
+
+**Single-hop** **versus multi-hop** **networks:**
+
+![img](https://i.imgur.com/ngEzDgl.png)
+
+* Because of limited distance the direct communication between source and sink is not always possible. 
+* In WSNs, to cover a lot of environment The data packets taking multi hops from source to the sink.Multi-hopping improves the energy efficiency of communication as it consumes less energy to use relays instead of direct communication
+
+**Multiple sinks and sources:** 
+
+![img](https://i.imgur.com/m5rmTuo.png)
+
+* In many cases, multiple sources and multiple sinks present. 
+
+* Multiple sources should send information to multiple sinks. Either all or some of the information has to reach all or some of the sinks.
+
+**Three types of mobility:** 
+
+In wireless communication has to support mobile participants. 
+
+In WSN, mobility can appear in three main forms….
+
+* **Node mobility**: The wireless sensor nodes themselves can be mobile
+
+* **Sink mobility:** The information sinks can be mobile. 
+
+* **Event mobility:** The objects to be tracked can be mobile.
+
+**Optimization** **goals and figures of** **merit:**
+
+For all WSN scenarios and application types have to face the challenges such as 
+
+* How to optimize a network and How to compare these solutions? 
+* How to decide which approach is better?
+* How to turn relatively inaccurate optimization goals into measurable figures of merit? 
+
+For all the above questions the general answer is obtained from  
+
+* Quality of service
+* Energy efficiency
+* Scalability
+* Robustness
+
+**Quality of service**: 
+
+* WSNs differ from other conventional communication networks in the type of service they offer.
+* These networks essentially only move bits from one place to another.
+
+***Scalability:*** 
+
+* The ability to maintain performance characteristics irrespective of the size of the network is referred to as scalability.
+
+* With WSN potentially consisting of thousands of nodes, scalability is an obviously essential requirement
+
+* The need for extreme scalability has direct consequences for the protocol design
+
+* Often, a penalty in performance or complexity has to be paid for small networks 
+
+* Architectures and protocols should implement appropriate scalability support rather than trying to be as scalable as possible
+
+* Applications with a few dozen nodes might admit more-efficient solutions than applications with thousands of nodes
+
+***Robustness:***
+
+* Wireless sensor networks should also exhibit an appropriate robustness
+
+* They should not fail just because a limited number of nodes run out of energy, or because their environment changes and severs existing radio links between two nodes
+
+* If possible, these failures have to be compensated by finding other routes. 
+
+**Need for gateways**
+
+![img](https://i.imgur.com/YMDZrSD.png)
+
+**sensor network to users via internet**
+
+![img](https://i.imgur.com/ucZ3Ru5.png)
+
+**Internet to sensor networks** 
+
+* For practical deployment, a sensor network only concerned with itself is insufficient.
+
+* The network rather has to be able to interact with other information devices for example to read the temperature sensors in one’s home while traveling and accessing the Internet via a wireless .
+
+* Wireless sensor networks should also exhibit an appropriate robustness
+
+* They should not fail just because of a limited number of nodes run out of energy or because of their environment changes and breaks existing radio links between two nodes
+
+* If possible, these failures have to be compensated by finding other routes. 
+
+**WSN** **tunneling**
+
+![img](https://i.imgur.com/lerZgAp.png)
+
+* The gateways can also act as simple extensions of one WSN to another WSN.
+
+* The idea is to build a larger using “tunneling” all protocol messages between two WSN Networks and simply using the Internet as a transport network. 
