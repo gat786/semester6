@@ -974,3 +974,15 @@ Evidently a better algorithm will deliver the packets with minimum delay.
 The unit for EED is milliseconds. 
 
 ![Imgur](https://i.imgur.com/qDEfmBn.png)
+
+
+
+![Imgur](https://i.imgur.com/b3MUdtv.png)
+
+
+
+![Imgur](https://i.imgur.com/Aiv6CfL.png)
+
+
+
+![Imgur](https://i.imgur.com/K8pyONN.png)
