@@ -160,6 +160,9 @@ on their frequency:
 Multiplexing is not only a fundamental mechanism in communication systems but also in everyday life. Multiplexing describes how several users can share a medium with minimum or no interference. One example, is highways with several lanes. Many users (car drivers) use the same medium (the highways) with hopefully no interference (i.e., accidents). This is possible due to the provision of several lanes (space division multiplexing) separating the traffic. In addition, different cars use the same medium (i.e., the same lane) at different points in time (time division multiplexing). 
 
 **Space division multiplexing**
+
+![Imgur](https://i.imgur.com/K3auYAi.png)
+
 For wireless communication, multiplexing can be carried out in four dimensions: space, time, frequency, and code. In this field, the task of multiplexing is to assign space, time, frequency, and code to each communication channel with a minimum of interference and a maximum of medium utilization. 
 
 Figure shows six channels ki and introduces a three dimensional coordinate system. This system shows the dimensions of code c, time t and frequency f. For this first type of multiplexing, space division multiplexing (SDM), the (three dimensional) space si is also shown. Here space is represented via circles indicating the interference range as introduced in Figure 2.11. How is the separation of the different channels achieved? The channels k1 to k3 can be mapped onto the three ‘spaces’ s1 to s3 which clearly separate the channels and prevent the interference ranges from overlapping. The space between the interference ranges is sometimes called guard space. Such a guard space is needed in all four multiplexing schemes presented.
@@ -168,19 +171,27 @@ For the remaining channels (k4 to k6) three additional spaces would be needed. I
 
 **Frequency division multiplexing**
 
+![Imgur](https://i.imgur.com/WIyKQxB.png)
+
 Frequency division multiplexing (FDM) describes schemes to subdivide the frequency dimension into several non-overlapping frequency bands as shown in Figure 2.17. Each channel ki is now allotted its own frequency band as indicated. Senders using a certain frequency band can use this band continuously. Again, guard spaces are needed to avoid frequency band overlapping (also called adjacent channel interference). This scheme is used for radio stations within the same region, where each radio station has its own frequency. This very simple multiplexing scheme does not need complex coordination between sender and receiver: the receiver only has to tune in to the specific sender.
 
 However, this scheme also has disadvantages. While radio stations broadcast 24 hours a day, mobile communication typically takes place for only a few minutes at a time. Assigning a separate frequency for each possible communication scenario would be a tremendous waste of (scarce) frequency resources. Additionally, the fixed assignment of a frequency to a sender makes the scheme very inflexible and limits the number of senders.
 
 **Time division multiplexing**
 
+![Imgur](https://i.imgur.com/7Rxk2SK.png)
+
 A more flexible multiplexing scheme for typical mobile communications is time division multiplexing (TDM). Here a channel ki is given the whole bandwidth for a certain amount of time, i.e., all senders use the same frequency but at different points in time (see Figure 2.18). Again, guard spaces, which now represent time gaps, have to separate the different periods when the senders use the medium. In our highway example, this would refer to the gap between two cars. If two transmissions overlap in time, this is called co-channel interference. (In the highway example, interference between two cars results in an accident.) To avoid this type of interference, precise synchronization between different senders is necessary. This is clearly a disadvantage, as all senders need precise clocks or, alternatively, a way has to be found to distribute a synchronization signal to all senders. For a receiver tuning in to a sender this does not just involve adjusting the frequency, but involves listening at exactly the right point in time. However, this scheme is quite flexible as one can assign more sending time to senders with a heavy load and less to those with a light load.
+
+![Imgur](https://i.imgur.com/qj4jWEz.png)
 
 Frequency and time division multiplexing can be combined, i.e., a channel ki can use a certain frequency band for a certain amount of time as shown in Figure 2.19. Now guard spaces are needed both in the time and in the frequency dimension. This scheme is more robust against frequency selective interference, i.e., interference in a certain small frequency band. A channel may use this band only for a short period of time. Additionally, this scheme provides some (weak) protection against tapping, as in this case the sequence of frequencies a sender uses has to be known to listen in to a channel. The mobile phone standard GSM uses this combination of frequency and time division multiplexing for transmission between a mobile phone and a so-called base station.
 
 A disadvantage of this scheme is again the necessary coordination between different senders. One has to control the sequence of frequencies and the time of changing to another frequency. Two senders will interfere as soon as they select the same frequency at the same time. However, if the frequency change (also called frequency hopping) is fast enough, the periods of interference may be so small that, depending on the coding of data into signals, a receiver can still recover the original data.
 
 **Code division multiplexing**
+
+![Imgur](https://i.imgur.com/B13zXsx.png)
 
 While SDM and FDM are well known from the early days of radio transmission and TDM is used in connection with many applications, code division multiplexing (CDM) is a relatively new scheme in commercial communication systems. First used in military applications due to its inherent security features (together with spread spectrum techniques, see section 2.7), it now features in many civil wireless transmission scenarios thanks to the availability of cheap processing power (explained in more detail in section 3.5). Figure 2.20 shows how all channels ki use the same frequency at the same time for transmission. Separation is now achieved by assigning each channel its own ‘code’, guard spaces are realized by using codes with the necessary ‘distance’ in code space, e.g., orthogonal codes. The technical realization of CDM is discussed in section 2.7 and chapter 3 together with the medium access mechanisms. An excellent book dealing with all aspects of CDM is Viterbi (1995).
 The typical everyday example of CDM is a party with many participants from different countries around the world who establish communication channels, i.e., they talk to each other, using the same frequency range (approx. 300–6000 Hz depending on a person’s voice) at the same time. If everybody speaks the same language, SDM is needed to be able to communicate talking with limited transmit power). But as soon as another code, i.e., another language, is used, one can tune in to this language and clearly separate communication in this language from all the other languages. (The other languages appear as background noise.) 
@@ -194,11 +205,17 @@ The main disadvantage of this scheme is the relatively high complexity of the re
 
 **Modulation**
 
+![Imgur](https://i.imgur.com/h6EdETk.jpg)
+
+![Imgur](https://i.imgur.com/01ngjxh.jpg)
+
 This function has three parameters: amplitude At, frequency ft, and phase φt which may be varied in accordance with data or another modulating signal. For digital modulation, which is the main topic in this section, digital data (0 and 1) is translated into an analog signal (baseband signal). Digital modulation is required if digital data has to be transmitted over a medium that only allows for analog transmission. One example for wired networks is the old analog telephone system – to connect a computer to this system a modem is needed. The modem then performs the translation of digital data into analog signals and vice versa. Digital transmission is used, for example, in wired local area networks or within a computer (Halsall, 1996), (Stallings, 1997). In wireless networks, however, digital transmission cannot be used. Here, the binary bit-stream has to be translated into an analog signal first. The three basic methods for this translation are amplitude shift keying (ASK), frequency shift keying (FSK), and phase shift keying (PSK).
 
 
 
 **Amplitude Shift Keying**
+
+![Imgur](https://i.imgur.com/iUMLcMF.jpg)
 
 Amplitude Shift Keying (ASK), the most simple digital modulation scheme. The two binary values, 1 and 0, are represented by two different amplitudes. In the example, one of the amplitudes is 0 (representing the binary 0). This simple scheme only requires low bandwidth, but is very susceptible to interference. Effects like multi-path propagation, noise, or path loss heavily influence the amplitude. In a wireless environment, a constant amplitude
 
@@ -206,15 +223,21 @@ Amplitude Shift Keying (ASK), the most simple digital modulation scheme. The two
 
 **Frequency Shift Keying**
 
+![Imgur](https://i.imgur.com/uDeJ5Rn.jpg)
+
 A modulation scheme often used for wireless transmission is frequency shift keying (FSK) (see Figure 2.24). The simplest form of FSK, also called binary FSK (BFSK), assigns one frequency f1 to the binary 1 and another frequency f2 to the binary 0. A very simple way to implement FSK is to switch between two oscillators, one with the frequency f1 and the other with f2, depending on the input. To avoid sudden changes in phase, special frequency modulators with continuous phase modulation, (CPM) can be used. Sudden changes in phase cause high frequencies, which is an undesired side-effect. 
 
 A simple way to implement demodulation is by using two bandpass filters, one for f1 the other for f2. A comparator can then compare the signal levels of the filter outputs to decide which of them is stronger. FSK needs a larger bandwidth compared to ASK but is much less susceptible to errors.
 
 **Phase Shift Keying**
 
+![Imgur](https://i.imgur.com/Df6M5BL.jpg)
+
 Finally, phase shift keying (PSK) uses shifts in the phase of a signal to represent data. Figure 2.25 shows a phase shift of 180° or π as the 0 follows the 1 (the same happens as the 1 follows the 0). This simple scheme, shifting the phase by 180° each time the value of data changes, is also called binary PSK (BPSK). A simple implementation of a BPSK modulator could multiply a frequency f with +1 if the binary data is 1 and with –1 if the binary data is 0. To receive the signal correctly, the receiver must synchronize in frequency and phase with the transmitter. This can be done using a phase lock loop (PLL). Compared to FSK, PSK is more resistant to interference, but receiver and transmitter are also more complex.
 
 **Spread Spectrum**
+
+![Imgur](https://i.imgur.com/eZCzVnG.png)
 
 Spread spectrum techniques involve spreading the bandwidth needed to transmit data – which does not make sense at first sight. Spreading the bandwidth has several advantages. The main advantage is the resistance to narrowband interference. In Figure 2.32, diagram 
 
@@ -269,6 +292,8 @@ Within the mobile station MS, the mobile termination (MT) performs all network s
 
 GSM comes with a hierarchical, complex system architecture comprising many entities, interfaces, and acronyms. Figure 4.4 gives a simplified overview of the GSM system as specified in ETSI (1991b). A GSM system consists of three subsystems, the radio sub system (RSS), the network and switching subsystem (NSS), and the operation subsystem (OSS). Each subsystem will be discussed in more detail in the following sections. Generally, a GSM customer only notices a very small fraction of the whole network – the mobile stations (MS) and some antenna masts of the base transceiver stations (BTS).
 
+![Imgur](https://i.imgur.com/Up2hFWH.png)
+
 1. **Radio subsystem**
    As the name implies, the radio subsystem (RSS) comprises all radio specific entities, i.e., the mobile stations (MS) and the base station subsystem (BSS). Figure 4.4 shows the connection between the RSS and the NSS via the A interface (solid lines) and the connection to the OSS via the O interface (dashed lines). The A interface is typically based on circuit-switched PCM-30 systems (2.048 Mbit/s), carrying up to 30 64 kbit/s connections, whereas the O interface uses the Signalling System No. 7 (SS7) based on X.25 carrying management data to/from the RSS.
 
@@ -284,26 +309,26 @@ GSM comes with a hierarchical, complex system architecture comprising many entit
 
 The “heart” of the GSM system is formed by the network and switching subsystem (NSS). The NSS connects the wireless network with standard public networks, performs handovers between different BSSs, comprises functions for worldwide localization of users and supports charging, accounting, and roaming of users between different providers in different countries. The NSS consists of the following switches and databases:
 
-* **Mobile services switching center (MSC):** MSCs are high-performance digital ISDN switches. They set up connections to other MSCs and to the BSCs via the A interface, and form the fixed backbone network of a GSM system. Typically, an MSC manages several BSCs in a geographical region. A gateway MSC (GMSC) has additional connections to other fixed networks, such as PSTN and ISDN. Using additional interworking functions (IWF), an MSC can also connect to public data networks (PDN) such as X.25. An MSC handles all signaling needed for connection setup, connection release and handover of connections to other MSCs. The standard signaling system No. 7 (SS7) is used for this purpose. SS7 covers all aspects of control signalingfor digital networks (reliable routing and delivery of control messages, establishing and monitoring of calls). Features of SS7 are number portability, free phone/toll/collect/credit calls, call forwarding, three-way calling etc. An MSC also performs all functions needed for supplementary services such as call forwarding, multi-party calls, reverse charging etc.
-* **Home location register (HLR):** The HLR is the most important database in a GSM system as it stores all user-relevant information. This comprises static information, such as the mobile subscriber ISDN number (MSISDN), subscribed services (e.g., call forwarding, roaming restrictions, GPRS), and the international mobile subscriber identity (IMSI). Dynamic information is also needed, e.g., the current location area (LA) of the MS, the mobile subscriber roaming number (MSRN), the current VLR and MSC. As soon as an MS leaves its current LA, the information in the HLR is updated. This information is necessary to localize a user in the worldwide GSM network. All these user-specific information elements only exist once for each user in a single HLR, which also supports charging and accounting. The parameters will be explained in more detail in section 4.1.5. HLRs can manage data for several million customers and contain highly specialized data bases which must fulfill certain real-time requirements to answer requests within certain time-bounds.
-* **Visitor location register (VLR):** The VLR associated to each MSC is a dynamic database which stores all important information needed for the MS users currently in the LA that is associated to the MSC (e.g., IMSI, MSISDN, HLR address). If a new MS comes into an LA the VLR is responsible for, it copies all relevant information for this user from the HLR. This hierarchy of VLR and HLR avoids frequent HLR updates and long-distance signaling of user information. The typical use of HLR and VLR for user localization will be described in section 4.1.5. Some VLRs in existence, are capable of managing up to one million customers.
+* Mobile services switching center (MSC): MSCs are high-performance digital ISDN switches. They set up connections to other MSCs and to the BSCs via the A interface, and form the fixed backbone network of a GSM system. Typically, an MSC manages several BSCs in a geographical region. A gateway MSC (GMSC) has additional connections to other fixed networks, such as PSTN and ISDN. Using additional interworking functions (IWF), an MSC can also connect to public data networks (PDN) such as X.25. An MSC handles all signaling needed for connection setup, connection release and handover of connections to other MSCs. The standard signaling system No. 7 (SS7) is used for this purpose. SS7 covers all aspects of control signalingfor digital networks (reliable routing and delivery of control messages, establishing and monitoring of calls). Features of SS7 are number portability, free phone/toll/collect/credit calls, call forwarding, three-way calling etc. An MSC also performs all functions needed for supplementary services such as call forwarding, multi-party calls, reverse charging etc.
+* Home location register (HLR): The HLR is the most important database in a GSM system as it stores all user-relevant information. This comprises static information, such as the mobile subscriber ISDN number (MSISDN), subscribed services (e.g., call forwarding, roaming restrictions, GPRS), and the international mobile subscriber identity (IMSI). Dynamic information is also needed, e.g., the current location area (LA) of the MS, the mobile subscriber roaming number (MSRN), the current VLR and MSC. As soon as an MS leaves its current LA, the information in the HLR is updated. This information is necessary to localize a user in the worldwide GSM network. All these user-specific information elements only exist once for each user in a single HLR, which also supports charging and accounting. The parameters will be explained in more detail in section 4.1.5. HLRs can manage data for several million customers and contain highly specialized data bases which must fulfill certain real-time requirements to answer requests within certain time-bounds.
+* Visitor location register (VLR): The VLR associated to each MSC is a dynamic database which stores all important information needed for the MS users currently in the LA that is associated to the MSC (e.g., IMSI, MSISDN, HLR address). If a new MS comes into an LA the VLR is responsible for, it copies all relevant information for this user from the HLR. This hierarchy of VLR and HLR avoids frequent HLR updates and long-distance signaling of user information. The typical use of HLR and VLR for user localization will be described in section 4.1.5. Some VLRs in existence, are capable of managing up to one million customers.
 
-3. **Operation subsystem**
+3. Operation subsystem
    The third part of a GSM system, the operation subsystem (OSS), contains the necessary functions for network operation and maintenance. The OSS possesses network entities of its own and accesses other entities via SS7 signaling (see Figure 4.4). The following entities have been defined:
 
-* **Operation and maintenance center (OMC):** The OMC monitors and controls
+* Operation and maintenance center (OMC): The OMC monitors and controls
   all other network entities via the O interface (SS7 with X.25). Typical
   OMC management functions are traffic monitoring, status reports of network
   entities, subscriber and security management, or accounting and
   billing. OMCs use the concept of telecommunication management network
   (TMN) as standardized by the ITU-T.
-* **Authentication centre (AuC):** As the radio interface and mobile stations
+* Authentication centre (AuC): As the radio interface and mobile stations
   are particularly vulnerable, a separate AuC has been defined to protect user
   identity and data transmission. The AuC contains the algorithms for
   authentication as well as the keys for encryption and generates the values
   needed for user authentication in the HLR. The AuC may, in fact, be situated
   in a special protected part of the HLR.
-* **Equipment identity register (EIR):** The EIR is a database for all IMEIs, i.e.,
+* Equipment identity register (EIR): The EIR is a database for all IMEIs, i.e.,
   it stores all device identifications registered for this network. As MSs are
   mobile, they can be easily stolen. With a valid SIM, anyone could use the
   stolen MS. The EIR has a blacklist of stolen (or locked) devices. In theory an
@@ -339,10 +364,9 @@ To locate an MS and to address the MS, several numbers are needed:
 
 * **Mobile station7 roaming number (MSRN):** Another temporary address that hides the identity and location of a subscriber is MSRN. The VLR generates this address on request from the MSC, and the address is also stored in the HLR. MSRN contains the current visitor country code (VCC), the visitor national destination code (VNDC), the identification of the current MSC together with the subscriber number. The MSRN helps the HLR to find a subscriber for an incoming call.
 
-All these numbers are needed to find a subscriber and to maintain the connection
-with a mobile station. The interesting case is the mobile terminated
-call (MTC), i.e., a situation in which a station calls a mobile station (the calling
-station could be outside the GSM network or another mobile station).
+All these numbers are needed to find a subscriber and to maintain the connection with a mobile station. The interesting case is the mobile terminated call (MTC), i.e., a situation in which a station calls a mobile station (the calling station could be outside the GSM network or another mobile station).
+
+![Imgur](https://i.imgur.com/G4MPE1C.png)
 
 In step 1, a user dials the phone number of a GSM subscriber. The fixed network (PSTN) notices (looking at the destination code) that the number belongs to a user in the GSM network and forwards the call setup to the Gateway MSC (2). The GMSC identifies the HLR for the subscriber (which is coded in the phone number) and signals the call setup to the HLR (3). The HLR now checks whether the number exists and whether the user has subscribed tothe requested services, and requests an MSRN from the current VLR (4). After receiving the MSRN (5), the HLR can determine the MSC responsible for the MS and forwards this information to the GMSC (6). The GMSC can now forward the call setup request to the MSC indicated (7). From this point on, the MSC is responsible for all further steps. First, it requests the current status of the MS from the VLR (8). If the MS is available, the MSC initiates paging in all cells it is responsible for (i.e. the location area, LA, 10), as searching for the right cell would be too time consuming (but this approach puts some load on the signaling channels so optimizations exist). The BTSs of all BSSs transmit this paging signal to the MS (11). If the MS answers (12 and 13), the VLR has to perform security checks (set up encryption etc.). The VLR then signals to the MSC to set up a connection to the MS (steps 15 to 17).
 
@@ -354,6 +378,8 @@ resources through the GSM network and into the PSTN. If all resources are availa
 the MSC sets up a connection between the MS and the fixed network.
 
 **Handover**
+
+![Imgur](https://i.imgur.com/H9ixKnR.png)
 
 Cellular systems require handover procedures, as single cells do not cover the whole service area, but, e.g., only up to 35 km around each antenna on the countryside and some hundred meters in cities (Tripathi, 1998). The smaller the cell size and the faster the movement of a mobile station through the cells (up to 250 km/h for GSM), the more handovers of ongoing calls are required.However, a handover should not cause a cut-off, also called call drop. GSM aims at maximum handover duration of 60 ms.
 There are two basic reasons for a handover (about 40 have been identified
@@ -406,11 +432,15 @@ A big difference between DECT and GSM exists in terms of cell diameter and cell 
 
 **System architecture**
 
+![Imgur](https://i.imgur.com/N6iWMba.png)
+
 A DECT system, may have various different physical implementation depending on its actual use. Different DECT entities can be integrated into one physical unit; entities can be distributed, replicated etc. However, all implementations are based on the same logical reference model of the system architecture as shown in Figure 4.18. A global network connects the local communication structure to the outside world and offers its services via the interface D1. Global networks could be integrated services digital networks (ISDN), public switched telephone networks (PSTN), public land mobile networks (PLMN), e.g., GSM, or packet switched public data network (PSPDN). The services offered by these networks include transportation of data and the translation of addresses and routing of data between the local networks. 
 
 Local networks in the DECT context offer local telecommunication services that can include everything from simple switching to intelligent call forwarding, address translation etc. Examples for such networks are analog or digital private branch exchanges (PBXs) or LANs, e.g., those following the IEEE 802.x family of LANs. As the core of the DECT system itself is quite simple, all typical network functions have to be integrated in the local or global network, where the databases home data base (HDB) and visitor data base (VDB) are also located. Both databases support mobility with functions that are similar to those in the HLR and VLR in GSM systems. Incoming calls are automatically forwarded to the current subsystem responsible for the DECT user, and the current VDB informs the HDB about changes in location
 
 **Protocol Architecture**
+
+![Imgur](https://i.imgur.com/UO0cjFy.png)
 
 The DECT protocol reference architecture follows the OSI reference model. Figure 4.19 shows the layers covered by the standard: the physical layer, medium access control, and data link control8 for both the control plane (C-Plane) and the user plane (U-Plane). An additional network layer has been specified for the C-Plane, so that user data from layer two is directly forwarded to the U-Plane.A management plane vertically covers all lower layers of a DECT system.
 
