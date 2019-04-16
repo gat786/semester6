@@ -9,5 +9,5 @@ Complete Answer book made available by respective teachers
 
 <a href="http://ganeshtiwari.me/semester6/datascience/dsanswerbook.pdf">Data Science</a> by Saima Qureshi Madam<br/>
 
-<a href="http://ganeshtiwari.me/semester6/forensics/cfanswerbank.pdf">Cyber Forensics</a> by Kausar Shaikh Madam<br/>
+<a href="http://ganeshtiwari.me/semester6/forensics/cfanswerbook.pdf">Cyber Forensics</a> by Kausar Shaikh Madam<br/>
 
