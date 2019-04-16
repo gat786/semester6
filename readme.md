@@ -7,7 +7,7 @@ This repository has all the documents required to read if you want to get full i
 
 Complete Answer book made available by respective teachers
 
-<a href="http://ganeshtiwari.me/semester6/datascience/dsanswerbook.pdf">Data Science</a> by Saima Mam<br/>
+<a href="http://ganeshtiwari.me/semester6/datascience/dsanswerbook.pdf">Data Science</a> by Saima Qureshi Madam<br/>
 
-<a href="http://ganeshtiwari.me/semester6/forensics/cfanswerbank.pdf">Cyber Forensics</a> by Kausar Madam<br/>
+<a href="http://ganeshtiwari.me/semester6/forensics/cfanswerbank.pdf">Cyber Forensics</a> by Kausar Shaikh Madam<br/>
 
