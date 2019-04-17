@@ -269,9 +269,7 @@ There are two types of components in nesC: *modules* and *configurations*. Modul
 This concept has discussion on turning individual sensor nodes into a wireless sensor network and Optimization goals of how a network should function.
 
 * Sensor network scenarios
-
 * Optimization goals and figures of merit
-
 * Gateway concepts 
 
 **Sensor** **network** **scenarios:**
@@ -330,7 +328,20 @@ For all the above questions the general answer is obtained from
 * WSNs differ from other conventional communication networks in the type of service they offer.
 * These networks essentially only move bits from one place to another.
 
-***Scalability:*** 
+**Energy Efficiency**:
+
+* The term “energy efﬁciency” is, in fact, rather an umbrella term for many different aspects of a system, which should be carefully distinguished to form actual, measurable ﬁgures of merit. The most commonly considered aspects are:
+* Energy per correctly received bit -  spent on average to transport one bit of information 
+* Energy per reported (unique) event -  average energy spent to report one event
+* Delay/energy trade-offs 
+* Network lifetime 
+  * Time to ﬁrst node death  -  ﬁrst node in the network run out of energy 
+  * Network Half life - 50% of the nodes run out of energy and stopped operating
+  * Time to partition - ﬁrst partition of the network in two (or more) disconnected parts occur
+* Time to loss of coverage - time when for the ﬁrst time any spot in the deployment region is no longer covered by any node’s observations
+* Time to failure of ﬁrst event notiﬁcation - 
+
+**Scalability:**: 
 
 * The ability to maintain performance characteristics irrespective of the size of the network is referred to as scalability.
 
@@ -347,10 +358,72 @@ For all the above questions the general answer is obtained from
 ***Robustness:***
 
 * Wireless sensor networks should also exhibit an appropriate robustness
-
 * They should not fail just because a limited number of nodes run out of energy, or because their environment changes and severs existing radio links between two nodes
-
 * If possible, these failures have to be compensated by finding other routes. 
+
+**Design principles for WSNs** 
+
+ A few basic principles have emerged, which can be useful when designing networking protocols; the description here follows partially references.
+
+1. Distributed organization 
+
+   Both the scalability and the robustness optimization goal, and to some degree also the other goals, make it imperative to organize the network in a distributed fashion. That means that there should be no centralized entity in charge – such an entity could, for example, control medium access or make routing decisions, similar to the tasks performed by a base station in cellular mobile networks. The disadvantages of such a centralized approach are obvious as it introduces exposed points of failure and is difﬁcult to implement in a radio network, where participants only have a limited communication range. Rather, the WSNs nodes should cooperatively organize the network, using distributed algorithms and protocols. Self-organization is a commonly used term for this principle. 
+
+2. In-network processing 
+
+   When organizing a network in a distributed fashion, the nodes in the network are not only passing on packets or executing application programs, they are also actively involved in taking decisions.about how to operate the network. This is a speciﬁc form of information processing that happens in the network, but is limited to information about the network itself. It is possible to extend this concept by also taking the concrete data that is to be transported by the network into account in this information processing, making in-network processing a ﬁrst-rank design principle
+
+   * Aggregation
+
+     Suppose a sink is interested in obtaining periodic measurements from all sensors, but it is only relevant to check whether the average value has changed, or whether the difference between minimum and maximum value is too big. In such a case, it is evidently not necessary to transport are readings from all sensors to the sink, but rather, it sufﬁces to send the average or the minimum and maximum value.
+
+     The name aggregation stems from the fact that in nodes intermediate between sources and sinks, information is aggregated into a condensed form out of information provided by nodes further away from the sink 
+
+   * Distributed source coding and distributed compression
+
+     Recall here that these sensors are embedded in
+     a physical environment – it is quite likely that the readings of adjacent sensors are going to be
+     quite similar; they are correlated. Such correlation can indeed be exploited such that not simply
+     the sum of the data must be transmitted but that overhead can be saved here. The theoretical basis
+     is the theorem by Slepian and Wolf [774], which carries their name. Good overview papers are
+     references
+
+   * Distributed and collaborative signal processing
+
+     An example for this concept is the distributed computation of a Fast Fourier Transform (FFT)
+     [152]. Depending on where the input data is located, there are different algorithms available to
+     compute an FFT in a distributed fashion, with different trade-offs between local computation complexity
+     and the need for communication. In principle, this is similar to algorithm design for parallel
+     computers. However, here not only the latency of communication but also the energy consumption
+     of communication and computation are relevant parameters to decide between various algorithms.
+     Such distributed computations are mostly applicable to signal processing type algorithms; typical
+     examples are beamforming and target tracking applications. Zhao and Guibas [924] provide a good
+     overview of this topic.
+
+3. Adaptive fidelity and accuracy
+
+   Clearly, when more sensors participate in the approximation, the function is sampled at more points and the approximation is better. But in return for this, more energy has to be invested. Similar examples hold for event detection and tracking applications and in general for WSNs.  Hence, it is up to an application to somehow define the degree of accuracy of the results (assuming that it can live with imprecise, approximated results) and it is the task of the communication protocols to try to achieve at least this accuracy as energy efficiently as possible. Moreover, the application should be able to adapt its requirements to the current status of the network – how many nodes have already failed, how much energy could be scavenged from the environment, what are the operational conditions (have critical events happened recently), and so forth. Therefore, the application needs feedback from the network about its status to make such decisions.
+
+4. Data centricity 
+
+   In traditional communication networks, the focus of a communication relationship is usually the pair of communicating peers – the sender and the receiver of data. In a wireless sensor network,= on the other hand, the interest of an application is not so much in the identity of a particular sensor node, it is much rather in the actual information reported about the physical environment. This is especially the case when a WSN is redundantly deployed such that any given event could be reported by multiple nodes – it is of no concern to the application precisely which of these nodes is providing data. This fact that not the identity of nodes but the data are at the center of attention is called data-centric networking.
+
+5. Exploit location information
+
+   Another useful technique is to exploit location information in the communication protocols whenever such information is present. Since the location of an event is a crucial information for many applications, there have to be mechanisms that determine the location of sensor nodes (and possibly also that of observed events) – they are discussed in detail in Chapter 9. Once such information is available, it can simplify the design and operation of communication protocols and can improve their energy efficiency considerably.
+
+6. Exploit activity patterns
+
+   Activity patterns in a wireless sensor network tend to be quite different from traditional networks. While it is true that the data rate averaged over a long time can be very small when there is only very rarely an event to report, this can change dramatically when something does happen. Once an event has happened, it can be detected by a larger number of sensors, breaking into a frenzy of activity, causing a well-known event shower effect. Hence, the protocol design should be able to handle such bursts of traffic by being able to switch between modes of quiescence and of high activity.
+
+7. Exploit heterogeneity
+
+   Related to the exploitation of activity patterns is the exploitation of heterogeneity in the network. Sensor nodes can be heterogenous by constructions, that is, some nodes have larger batteries, farther-reaching communication devices, or more processing power. They can also be heterogenous by evolution, that is, all nodes started from an equal state, but because some nodes had to perform more tasks during the operation of the network, they have depleted their energy resources or other nodes had better opportunities to scavenge energy from the environment (e.g. nodes in shade are at a disadvantage when solar cells are used). Whether by construction or by evolution, heterogeneity in the network is both a burden and an opportunity. The opportunity is in an asymmetric assignment of tasks, giving nodes with more resources or more capabilities the more demanding tasks. For example, nodes with more memory or faster processors can be better suited for aggregation, nodes with more energy reserves for hierarchical coordination, or nodes with a farther-reaching radio device should invest their energy mostly for long-distance communication, whereas, shorter-distance communication can be undertaken by the other nodes. The burden is that these asymmetric task assignments cannot usually be static but have to be reevaluated as time passes and the node/network state evolves. Task reassignment in turn is an activity that requires resources and has to be balanced against the potential benefits.
+
+8. Component-based protocol stacks and cross-layer optimization
+
+   All wireless sensor networks will require some – even if only simple – form of physical, MAC and link layer2 protocols; there will be wireless sensor networks that require routing and transport layer functionalities. Moreover, “helper modules” like time synchronization, topology control, or localization can be useful. On top of these “basic” components, more abstract functionalities can then be built. As a consequence, the set of components that is active on a sensor node can be complex, and will change from application to application. Protocol components will also interact with each other in essentially two different ways [330]. One is the simple exchange of data packets as they are passed from one component to another as it is processed by different protocols. The other interaction type is the exchange of cross-layer information.
+   This possibility for cross-layer information exchange holds great promise for protocol optimization, but is also not without danger. Kawadia and Kumar [412], for example, argue that imprudent use of cross-layer designs can lead to feedback loops, endangering both functionality and performance of the entire system. Clearly, these concerns should not be easily disregarded and care has to be taken to avoid such unexpected feedback loops.
 
 **Need for gateways**
 
